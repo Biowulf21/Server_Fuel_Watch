@@ -13,7 +13,12 @@ return new class extends Migration
     {
         Schema::create('company_branches', function (Blueprint $table) {
             $table->id();
+            $table->references('id')->on('fuel_companies');
+            $table->string('branch_name', 50);
+            $table->string('branch_address', 50);
+            $table->string('branch_coordinates');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
